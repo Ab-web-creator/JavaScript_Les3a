@@ -66,12 +66,21 @@ console.log("       [The result from the third* group:] " + outcomeResult3 + " s
 console.log("[------------- Opdracht 2 ---------------]")
 
 /* 2a: Write script */
-// The student administration has to recalculate every block what the average final grade is, but we start with the grades array from above.
+// The student administration has to recalculate every block what the average final grade is,
+// but we start with the grades array from above.
+
 // First write out the steps to calculate this and ask yourself the following things:
 // * How is an average calculated?
 // * What should I collect from the array of numbers to finally calculate an average?
 // * How do I ensure that I can go through all the values in the array, even if the array contains 100 entries?
 // Log the response in the terminal.
+
+let averageFinalGrade = 0;
+for (let i = 0; i < grades.length; i++) {
+    averageFinalGrade += grades[i];
+}
+const lastResult = averageFinalGrade / grades.length;
+console.log("[The average final grade is:] " + lastResult)
 
 // ---- Expected result: 6.642857142857143
 
@@ -79,9 +88,23 @@ console.log("[------------- Opdracht 2 ---------------]")
 /* 2b: Define to a reusable function */
 console.log("[------------- Opdracht 2b ---------------]")
 
-// Write a function called averageGrade that expects an array of grades (such as grades) and returns the average grade. Use your answer from 2a for this.
-// Make sure your function also works if we want to check another array, like for example: [6, 4, 5] or [8, 9, 4, 6, 10].
+// Write a function called averageGrade that expects an array of grades (such as grades) and
+// returns the average grade. Use your answer from 2a for this.
+// Make sure your function also works if we want to check another array, like for example:
+// [6, 4, 5] or [8, 9, 4, 6, 10].
 // Log the response in the terminal.
+
+function averageGrade(grades) {
+    let averageFinalGrade2 = 0;
+    for (let i = 0; i < grades.length; i++) {
+        averageFinalGrade2 = grades[i] + averageFinalGrade2;
+    }
+    averageFinalGrade2 = averageFinalGrade2 / grades.length;
+    return averageFinalGrade2;
+}
+
+console.log("[2b: The average final grade via Function is:] " + averageGrade(grades))
+console.log("[2b_1: The average final grade via Function is for 6-4-5:] " + averageGrade([6, 4, 5]))
 
 // ---- Expected outcomes:
 // averageGrade(grades) returns 6.642857142857143
@@ -95,6 +118,18 @@ console.log("[------------- Opdracht 2c ---------------]")
 // Ensure that the average grade returned from the function is neatly rounded to two decimal places.
 // Tip: Google is your best friend!
 
+console.log("[2c: Rounding the average final grade:] " + averageGrade(grades).toFixed(2))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -102,7 +137,9 @@ console.log("[------------- Opdracht 2c ---------------]")
 console.log("[------------- Bonus assignment: 3a ---------------]")
 
 /* 3a: Write script */
-// Write a script that checks the highest grade obtained based on the grades array (above). You may not use existing methods for this. Write out the steps first and ask yourself the following things:
+// Write a script that checks the highest grade obtained based on the
+// grades array (above). You may not use existing methods for this.
+// Write out the steps first and ask yourself the following things:
 // * How can I go through each value of the array?
 // * What condition should I check for?
 // * How do I make sure that when I come across a grade that meets the condition, I can save it somewhere?
@@ -113,147 +150,14 @@ console.log("[------------- Bonus assignment: 3a ---------------]")
 
 /* 3b: Define to a reusable function */
 console.log("[------------- Bonus assignment: 3b ---------------]")
-// Write a function called highestGrade that expects an array of grades (such as grades) and returns the highest grade. Use your answer from 3a for this.
-// Make sure your function also works if we want to check another array, like for example: [6, 4, 5] or [8, 9, 4, 6, 10].
+// Write a function called highestGrade that expects an array of grades
+// (such as grades) and returns the highest grade. Use your answer
+// from 3a for this.
+// Make sure your function also works if we want to check another array,
+// like for example: [6, 4, 5] or [8, 9, 4, 6, 10].
 // Log the response in the terminal.
 
 // ---- Expected outcomes:
 // highestGrade(grades) returns 9
 // highestGrade([6, 4, 5]) returns 6
 // highestGrade([8, 9, 4, 6, 10]) returns 10
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Answers
-
-// opdracht 2
-
-// stap 1 cijfers verzamelen van grades, bij elkaar optellen
-
-// let total = 0
-
-
-// for (let i = 0; i < grades.length; i++) {
-
-// total += grades[i];
-// }
-
-// stap 2 bereken gemiddelde
-
-
-// const average = total / grades.length;
-
-
-// stap 3 log het antwoord
-
-// console.log("Gemiddelde eindcijfer: " + average)
-
-
-// ---- Verwachte uitkomst: 6.642857142857143
-
-
-// // keyingisi
-// const roundedAverage = average.toFixed(2);
-// console.log("Gemiddelde eindcijfer: " + roundedAverage);
-
-
-
-
-
-
-// // keyingisi
-// function getEmailDomain (emailAddress) {
-//     const startDomain = emailAddress.indexOf("@");
-//     const domain = emailAddress.slice(startDomain + 1);
-//     return domain;
-//     }
-    
-//     console.log(getEmailDomain("n.eeken@novi-education.nl"));
-//     console.log(getEmailDomain("t.mellink@novi.nl"));
-//     console.log(getEmailDomain("a.wiersma@outlook.com"));
-
-
-
-
-//     // next
-
-//     function typeOfEmail (emailAddress) {
-//         const startDomain = emailAddress.indexOf("@");
-//         const domain = emailAddress.slice(startDomain + 1);
-        
-//         switch (domain) {
-//         case "novi-education.nl":
-//         return "student";
-//         case "novi.nl":
-//         return "Medewerker";
-//         default:
-//         return "Extern";
-//         }
-//         }
-//         console.log(typeOfEmail("n.eeken@novi-education.nl"));
-//         console.log(typeOfEmail("t.mellink@novi.nl"));
-//         console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
-//         console.log(typeOfEmail("a.wiersma@outlook.com"));
-
-//     // or 
-
-// function typeOfEmail (emailAddress) {
-
-
-// switch (true) {
-
-// case emailAddress.includes("@novi-education.nl"):
-
-// return "student";
-
-// case emailAddress.includes("@novi.nl"):
-
-// return "Medewerker";
-
-// default:
-
-// return "Extern";
-
-// }
-
-// }
-
-// console.log(typeOfEmail("n.eeken@novi-education.nl"));
-
-// console.log(typeOfEmail("t.mellink@novi.nl"));
-
-// console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
-
-// console.log(typeOfEmail("a.wiersma@outlook.com"));
-
-// // yoki bumi
-
-// function typeOfEmail(emailAddress) {   
-//     if (emailAddress.includes("@novi-education.nl")) {     
-//         return "Student";   
-//     } 
-//     else if (emailAddress.includes("@novi.nl")) {
-//         return "Medewerker";
-//     } else {
-//         return "Extern";   
-//     } } 
-    
-//     console.log(typeOfEmail("n.eeken@novi-education.nl"));
-//     console.log(typeOfEmail("t.mellink@novi.nl"));
-//     console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
-//     console.log(typeOfEmail("a.wiersma@outlook.com"));
